@@ -1,0 +1,42 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  register: Float!
+  key: String!
+  login: String!
+  name: String!
+  name_usual: String!
+  email: String!
+}
+
+type Query {
+  user(id: Float!): User!
+  users(name: String, name_usual: String): [User!]!
+}
+
+type Mutation {
+  createUser(data: CreateUserDto!): User!
+  updateUser(id: Float!, data: UpdateUserDto!): User!
+  deleteUser(id: Float!): Boolean!
+}
+
+input CreateUserDto {
+  register: Float!
+  key: String!
+  login: String!
+  name: String!
+  name_usual: String!
+  email: String!
+}
+
+input UpdateUserDto {
+  register: Float
+  key: String
+  login: String
+  name: String
+  name_usual: String
+  email: String
+}
