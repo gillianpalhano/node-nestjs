@@ -12,15 +12,26 @@ type User {
   email: String!
 }
 
+type Company {
+  id: ID!
+  name: String!
+  logo: String!
+}
+
 type Query {
   user(id: Float!): User!
   users(name: String, name_usual: String): [User!]!
+  company(id: Float!): Company!
+  companys(name: String): [Company!]!
 }
 
 type Mutation {
   createUser(data: CreateUserDto!): User!
   updateUser(id: Float!, data: UpdateUserDto!): User!
   deleteUser(id: Float!): Boolean!
+  createCompany(data: CreateCompanyDto!): Company!
+  updateCompany(id: Float!, data: UpdateCompanyDto!): Company!
+  deleteCompany(id: Float!): Boolean!
 }
 
 input CreateUserDto {
@@ -39,4 +50,14 @@ input UpdateUserDto {
   name: String
   name_usual: String
   email: String
+}
+
+input CreateCompanyDto {
+  name: String!
+  logo: String!
+}
+
+input UpdateCompanyDto {
+  name: String
+  logo: String
 }

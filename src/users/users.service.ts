@@ -1,4 +1,5 @@
 import { HttpException, HttpStatus, Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { sanitizeObject } from 'src/helpers/util';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -12,6 +13,7 @@ export class UsersService {
   ) {}
 
   findAll(query?: any ): Promise<User[]> {
+    query = sanitizeObject(query)
     return this.userRepository.find({ ...query });
   }
 

@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+import { CompanysModule } from './companys/companys.module';
 // import { DirectiveLocation, GraphQLDirective } from 'graphql';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -11,7 +12,8 @@ import { join } from 'path';
 
 @Module({
   imports: [
-    UsersModule, 
+    UsersModule,
+    CompanysModule,
     ConfigModule.forRoot({ isGlobal: true }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
